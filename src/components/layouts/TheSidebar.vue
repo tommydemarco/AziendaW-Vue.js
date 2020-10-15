@@ -10,18 +10,18 @@
           <div class="card-body">
             <form>
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="" />
-                <span class="form-check-label"> Mersedes Benz </span>
+                <input class="form-check-input" type="checkbox" id="vinoRosso" value="null" checked @change="filterProducts" />
+                <span class="form-check-label"> Vino Rosso </span>
               </label>
               <!-- form-check.// -->
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="" />
-                <span class="form-check-label"> Nissan Altima </span>
+                <input class="form-check-input" type="checkbox" id="vinoBianco" value="null" checked @change="filterProducts" />
+                <span class="form-check-label"> Vino Bianco </span>
               </label>
               <!-- form-check.// -->
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" value="" />
-                <span class="form-check-label"> Another Brand </span>
+                <input class="form-check-input" type="checkbox" id="vinoRose" value="null" checked @change="filterProducts"/>
+                <span class="form-check-label"> Vino Rosè </span>
               </label>
               <!-- form-check.// -->
             </form>
@@ -45,8 +45,9 @@
                 <input
                   type="number"
                   class="form-control"
-                  id="inputEmail4"
-                  placeholder="$0"
+                  placeholder="€0"
+                  v-model="filter.minPrice"
+                  @change="filterProducts"
                 />
               </div>
               <div class="form-group col-md-6 text-right">
@@ -54,7 +55,9 @@
                 <input
                   type="number"
                   class="form-control"
-                  placeholder="$1,0000"
+                  placeholder="€10.000"
+                  v-model="filter.maxPrice"
+                  @change="filterProducts"
                 />
               </div>
             </div>
@@ -111,6 +114,43 @@
     </div>
   </aside>
 </template>
+
+<script>
+export default {
+  emits: ['change-filters'],
+  data() {
+    return {
+      filter: {
+        vinoRosso: true,
+        vinoBianco: true,
+        vinoRose: true,
+        minPrice: '0',
+        maxPrice: '10000'
+      }
+    }
+  }, 
+  methods: {
+    filterProducts() {
+      if (event.target.id) {
+        const filterId = event.target.id;
+        const modifiedFilter = event.target.checked
+        const updatedFilters = {
+          ...this.filter,
+          [filterId]: modifiedFilter
+        }
+        this.filter = updatedFilters
+        this.$emit('change-filters', updatedFilters)
+      } else {
+        const updatedFilters = {
+          ...this.filter,
+        }
+        this.filter = updatedFilters
+        this.$emit('change-filters', updatedFilters)
+      }      
+    }
+  }
+}
+</script>
 
 <style scoped>
 .card {

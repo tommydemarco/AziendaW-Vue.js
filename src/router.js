@@ -14,7 +14,9 @@ const routes = [
     { path: '/blog', component: BlogPage },
     { path: '/prodotti', component: ProdottiPage },
     { path: '/prodotti/:id', props: true, component: ProdottoSingoloPage },
-    { path: '/:notFound(.*)', component: NotFoundPage }
+    { path: '/:notFound(.*)', component: NotFoundPage },
+    //restricted routes 
+    { path: '/login', component: () => import(/* webpackChunkName: "LoginPage" */  './pages/auth/LoginPage') }
 ]
 
 const router = createRouter({

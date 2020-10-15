@@ -1,7 +1,7 @@
 <template>
     <the-header></the-header>
     <router-view></router-view>
-    <the-footer></the-footer>
+    <the-footer></the-footer> 
 </template>
 
 <script>
@@ -23,6 +23,7 @@ export default {
 #app .btn-primary {
     background-color: #16a085;
     border: 1px solid #16a085;
+    border-radius: 0px;
 }
 #app .btn-primary:hover {
     background-color: #007b5e;
@@ -38,8 +39,9 @@ export default {
     background-color: rgb(243, 243, 243);
     color:#007b5e;
 }
-.button-ul li {
+.button-ul {
     padding-left: 0px;
+    margin-bottom: 0px;
 }
 .button-ul li {
     display:inline-block

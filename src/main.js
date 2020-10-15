@@ -11,8 +11,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //=====> GLOBAL COMPONENTS
 import BaseCard from './components/UI/BaseCard.vue';
 import BaseButton from './components/UI/BaseButton.vue';
+import PhotoBackground from './components/UI/PhotoBackground.vue';
 app.component('base-card', BaseCard);
 app.component('base-button', BaseButton);
+app.component('photo-background', PhotoBackground);
 
 
 app.use(router);

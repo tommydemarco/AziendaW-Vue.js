@@ -2,12 +2,12 @@
     <button :class="'btn ' + mode" v-if="type" :type="type">
         <slot></slot>
     </button>
-    <a :class="'btn ' + mode" v-if="a" :href="link" target="_blank">
-        <slot></slot>
-    </a>
     <router-link :class="'btn ' + mode" v-else :to="link">
         <slot></slot>
     </router-link>
+    <a :class="'btn ' + mode" v-if="a" :href="link" target="_blank">
+        <slot></slot>
+    </a>
 </template>
 
 <script>
