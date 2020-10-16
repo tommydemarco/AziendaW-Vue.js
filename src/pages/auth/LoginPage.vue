@@ -3,12 +3,17 @@
   <div class="login-dark">
     <form @submit.prevent="logginIn">
       <h2 class="text-white text-center mb-3">Login</h2>
+      <p v-if="isRerouting">The page that you are trying to access is login-protected.</p>
+
+      <teleport to="body">
+        <base-spinnerf v-if="isLoading"></base-spinnerf>
+      </teleport>
 
       <!-- alert if email or password are blank -->
       <base-alert v-if="!isValid" alert-message="Invalid username or password" @close-click="formIsValid"></base-alert>
 
       <!-- alert for server side errors -->
-      <base-alert v-if="errorLogin" :message="errorMessage"></base-alert>
+      <base-alert v-if="errorLogin" :alertMessage="errorMessage" @close-click="formIsValid"></base-alert>
 
       <div class="form-group">
         <input
@@ -46,28 +51,47 @@ export default {
       isValid: true,
       errorLogin: false,
       errorMessage: '',
+      isLoading: false,
+      isRerouting: false
     };
   },
+  created() {
+    this.rerouting()
+  },
   methods: {
-    logginIn() {
+    async logginIn() {
       this.errorLogin = false;
       this.errorMessage = '';
+      this.isLoading = true;
       if (this.username === '' || this.password === '') {
         this.isValid = false;
+        this.isLoading = false;
         return
       }
-      this.$store.dispatch('auth/logging', {
+      const userCreadentials = {
         username: this.username,
         password: this.password
-      }).then(() => {
-        this.$router.push({ name: 'chi-siamo' })
-      }).catch((e) => {
-        this.errorLogin = true;
-        this.errorMessage = 'We could not log you in at the moment due to the following reason:' + e.message;
-      })
+      }
+      try {
+        await this.$store.dispatch('auth/logging', userCreadentials)
+        //redirecting after login
+        const url = '/' + this.$route.query.redirect;
+        this.$router.replace(url || { name: 'home'})
+      } catch(e) {
+        this.errorMessage = e.message;
+        this.errorLogin = true
+      }
+      this.isLoading = false;
+        
     },
     formIsValid() {
-        this.isValid = true 
+        this.isValid = true
+        this.errorLogin = false
+    },
+    rerouting() {
+      if(this.$route.query.redirect) {
+        this.isRerouting = true
+      }
     }
   },
 };

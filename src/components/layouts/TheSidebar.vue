@@ -167,7 +167,7 @@ export default {
 }
 .card-body {
     border-radius: 0px;
-    background-color: #f3f3f3;
+    background-color: white;
 }
 .sidebar-sticky {
     position: sticky;

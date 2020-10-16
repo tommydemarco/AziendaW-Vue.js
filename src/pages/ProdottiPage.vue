@@ -1,32 +1,37 @@
 <template>
+
+<div class="main-container">
   <section>
     <header>
-      <div class="container text-center py-4">
-        <h1>I nostri prodotti</h1>
-        <p>Assapora la qualità e la nostra passione</p>
+      <div class="container">
+          <div class="intro pb-5">
+              <h1 class="text-center mb-1">Our products</h1>
+              <p class="text-center mt-0">Taste our passion for wine excellence</p>
+          </div>
       </div>
     </header>
   </section>
 
-<section>
-  <div class="container pb-5">
-    <div class="row">
-      <the-sidebar @change-filters="changeTheFiltering"></the-sidebar>
-      <div class="col-md-8">
-        <div class="row">
-          <base-card col="6" v-for="a in allProducts" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
-            <template #footer>
-              <ul class="button-ul">
-                <li><base-button mode="btn-primary-inverse" link="/prodotti/1">Scopri di più &raquo;</base-button></li>
-                <li class="ml-3"><base-button mode="btn-primary-inverse" link="/prodotti/1">Compra ora &raquo;</base-button></li>
-              </ul>
-            </template>      
-          </base-card>
+  <section>
+    <div class="container pb-5">
+      <div class="row">
+        <the-sidebar @change-filters="changeTheFiltering"></the-sidebar>
+        <div class="col-md-8">
+          <div class="row">
+            <base-card col="6" v-for="a in allProducts" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
+              <template #footer>
+                <ul class="button-ul">
+                  <li><base-button mode="btn-primary-inverse" link="/prodotti/1">Scopri di più &raquo;</base-button></li>
+                  <li class="ml-3"><base-button mode="btn-primary-inverse" link="/prodotti/1">Compra ora &raquo;</base-button></li>
+                </ul>
+              </template>      
+            </base-card>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 </template>
 

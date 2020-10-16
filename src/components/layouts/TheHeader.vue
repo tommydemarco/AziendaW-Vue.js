@@ -16,16 +16,16 @@
           <router-link class="nav-link" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/prodotti">Prodotti</router-link>
+          <router-link class="nav-link" to="/products">Prodotti</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/blog">Blog</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/chi-siamo">Chi siamo</router-link>
+          <router-link class="nav-link" to="/the-team">Chi siamo</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/contatti">Contatti</router-link>
+          <router-link class="nav-link" to="/contacts">Contatti</router-link>
         </li>
       </ul>
     </div>

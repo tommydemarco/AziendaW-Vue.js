@@ -7,7 +7,11 @@ export default {
     //     console.log(context)
     // }
     async getEmployees(context) {
-        const response = await fetch('http://localhost:8000/api/azienda/employees/')
+        console.log(context.rootGetters['auth/getToken'])
+        const response = await fetch('http://localhost:8000/api/azienda/employees/', {
+            method: 'GET',
+            headers: { Authorization: `Bearer ${context.rootGetters['auth/getToken']}`}
+        })
         if(!response.ok) {
             //error handling here 
         }

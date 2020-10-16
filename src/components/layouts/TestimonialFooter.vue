@@ -2,8 +2,8 @@
  <div class="testimonials-clean">
         <div class="container">
             <div class="intro">
-                <h3 class="text-center">Dicono di noi </h3>
-                <p class="text-center upper-p">Our customers love us! Read what they have to say below. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
+                <h3 class="text-center">Testimonials</h3>
+                <p class="text-center upper-p">Our customers love us! Read what they have to say below.</p>
             </div>
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item">

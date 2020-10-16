@@ -21,7 +21,7 @@ export default {
     props: {
         alertMessage: {
             type: String,
-            default: 'Something went wrong.'
+            required: true
         }
     },
     methods: {

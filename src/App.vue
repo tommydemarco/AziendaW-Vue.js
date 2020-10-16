@@ -12,6 +12,9 @@ export default {
     components: {
         TheHeader,
         TheFooter
+    },
+    created() {
+        this.$store.dispatch('auth/tryLogin')
     }
 }
 </script>
@@ -45,5 +48,40 @@ export default {
 }
 .button-ul li {
     display:inline-block
+}
+
+/*general and heading styling*/
+.main-container {
+  color:#313437;
+  background-color:#eef4f7;
+}
+
+.main-container p {
+  color:#7d8285;
+}
+
+.main-container h1 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+  color:inherit;
+}
+
+@media (max-width:767px) {
+  .main-container h1 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.main-container .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto;
+}
+
+.main-container .intro p {
+  margin-bottom:0;
 }
 </style>

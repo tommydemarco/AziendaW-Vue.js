@@ -1,10 +1,10 @@
 <template>
 
-    <div class="team-boxed">
+    <div class="main-container">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Team </h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
+                <h1 class="text-center mb-1">The team </h1>
+                <p class="text-center mt-0">Meet our enthusiastic team members</p>
             </div>
             <div class="row people">
                 <div v-for="e in listEmployees" :key="e.id" class="col-md-6 col-lg-4 item">
@@ -22,20 +22,18 @@
 </template>
 
 <script>
-import axiosAPI from '../axios-api.js';
-
 export default {
     data() {
         return {}
     },
     created() {
         //if (this.$store.getters['employees/listEmployees'].length !== 0) {
-        //this.getEmployees()
-        axiosAPI.get('/employees/', { headers: { Authorization: `Bearer ${this.$store.getters['auth/getToken']}`}})
-          .then(response => response.json())
-          .then((responseData) => {
-            this.$store.commit('employees/getEmployeesToken', responseData)
-          })
+        this.getEmployees()
+        // axiosAPI.get('/employees/', { headers: { Authorization: `Bearer ${this.$store.getters['auth/getToken']}`}})
+        //   .then(response => response.json())
+        //   .then((responseData) => {
+        //     this.$store.commit('employees/getEmployeesToken', responseData)
+        //   })
 
         //}
     },
@@ -54,63 +52,29 @@ export default {
 </script>
 
 <style scoped>
-.team-boxed {
-  color:#313437;
-  background-color:#eef4f7;
-}
-
-.team-boxed p {
-  color:#7d8285;
-}
-
-.team-boxed h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
-}
-
-@media (max-width:767px) {
-  .team-boxed h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
-  }
-}
-
-.team-boxed .intro {
-  font-size:16px;
-  max-width:500px;
-  margin:0 auto;
-}
-
-.team-boxed .intro p {
-  margin-bottom:0;
-}
-
-.team-boxed .people {
+.main-container .people {
   padding:50px 0;
 }
 
-.team-boxed .item {
+.main-container .item {
   text-align:center;
 }
 
-.team-boxed .item .box {
+.main-container .item .box {
   text-align:center;
   padding:30px;
   background-color:#fff;
   margin-bottom:30px;
 }
 
-.team-boxed .item .name {
+.main-container .item .name {
   font-weight:bold;
   margin-top:28px;
   margin-bottom:8px;
   color:inherit;
 }
 
-.team-boxed .item .title {
+.main-container .item .title {
   text-transform:uppercase;
   font-weight:bold;
   color:#d0d0d0;
@@ -118,29 +82,29 @@ export default {
   font-size:13px;
 }
 
-.team-boxed .item .description {
+.main-container .item .description {
   font-size:15px;
   margin-top:15px;
   margin-bottom:20px;
 }
 
-.team-boxed .item img {
+.main-container .item img {
   max-width:160px;
 }
 
-.team-boxed .social {
+.main-container .social {
   font-size:18px;
   color:#a2a8ae;
 }
 
-.team-boxed .social a {
+.main-container .social a {
   color:inherit;
   margin:0 10px;
   display:inline-block;
   opacity:0.7;
 }
 
-.team-boxed .social a:hover {
+.main-container .social a:hover {
   opacity:1;
 }
 </style>
