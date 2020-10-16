@@ -14,12 +14,14 @@ import BaseButton from './components/UI/BaseButton.vue';
 import PhotoBackground from './components/UI/PhotoBackground.vue';
 import BaseAlert from './components/UI/BaseAlert.vue';
 import BaseSpinnerF from './components/UI/BaseSpinnerF.vue';
+import BaseSpinner from './components/UI/BaseSpinner.vue';
 import BlogCard from './components/UI/BlogCard.vue';
 app.component('base-card', BaseCard);
 app.component('base-button', BaseButton);
 app.component('photo-background', PhotoBackground);
 app.component('base-alert', BaseAlert);
 app.component('base-spinnerf', BaseSpinnerF);
+app.component('base-spinner', BaseSpinner);
 app.component('blog-card', BlogCard);
 
 app.use(router);

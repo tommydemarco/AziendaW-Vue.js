@@ -3,7 +3,7 @@
   <div class="login-dark">
     <form @submit.prevent="logginIn">
       <h2 class="text-white text-center mb-3">Login</h2>
-      <p v-if="isRerouting">The page that you are trying to access is login-protected.</p>
+      <p v-if="isRerouting" class="text-center">The page that you are trying to access is login-protected.</p>
 
       <teleport to="body">
         <base-spinnerf v-if="isLoading"></base-spinnerf>
@@ -75,8 +75,8 @@ export default {
       try {
         await this.$store.dispatch('auth/logging', userCreadentials)
         //redirecting after login
-        const url = '/' + this.$route.query.redirect;
-        this.$router.replace(url || { name: 'home'})
+        const url = '/' + (this.$route.query.redirect) || '';
+        this.$router.replace(url)
       } catch(e) {
         this.errorMessage = e.message;
         this.errorLogin = true

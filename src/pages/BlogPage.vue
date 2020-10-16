@@ -17,7 +17,7 @@
       <div class="row">
         <blog-card v-for="a in allArticles" :key="a.id" :title="a.title" :paragraph="a.content.slice(0, 70) + '...'" :imageUrl="a.image">
           <template #footer>
-            <base-button mode="btn-primary-inverse" :link="'/articles/' + a.id">Read the article &raquo;</base-button>
+            <base-button mode="btn-primary-inverse" :link="'/blog/' + a.id">Read the article &raquo;</base-button>
           </template>      
         </blog-card>
       </div>

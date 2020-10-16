@@ -17,7 +17,8 @@
       <div class="row">
         <the-sidebar @change-filters="changeTheFiltering"></the-sidebar>
         <div class="col-md-8">
-          <div class="row">
+          <base-spinner v-if="isLoading"></base-spinner>
+          <div class="row" v-else>
             <base-card col="6" v-for="a in allProducts" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
               <template #footer>
                 <ul class="button-ul">
@@ -50,7 +51,8 @@ export default {
         vinoRose: true,
         minPrice: 0,
         maxPrice: 10000
-      }
+      },
+      isLoading: false
     }
   },
   computed: {
@@ -84,11 +86,20 @@ export default {
     }
   },
   created() {
-    this.fetchProducts() 
+    if (this.$store.getters['products/allProducts'].length == 0) {
+      this.fetchProducts() 
+    }
   },
   methods: {
-    fetchProducts() {
-      this.$store.dispatch('products/fetchProducts')
+    async fetchProducts() {
+      this.isLoading = true 
+      try {
+        await this.$store.dispatch('products/fetchProducts')
+      } catch(e) {
+        console.log(e)
+      }
+      this.isLoading = false 
+      
     },
     changeTheFiltering(updatedFilters) {
       this.activeFilters = updatedFilters

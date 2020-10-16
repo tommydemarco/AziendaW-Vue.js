@@ -6,7 +6,7 @@
           <a class="nav-link" href="#"><i class="fa fa-map-marker"></i> Cannobio, 28822, IT</a>
         </li>
     </ul>
-      <ul class="navbar-nav ml-auto">
+      <ul id="no-small" class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa fa-phone"></i> +39 0123 45678</a>
         </li>
@@ -53,4 +53,10 @@ export default {
 #upper-header a {
     color: white
 }
+@media only screen and (max-width: 993px) {
+  #no-small {
+    display: none!important;
+  }
+}
+
 </style>

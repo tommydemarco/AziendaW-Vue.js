@@ -14,6 +14,7 @@ const routes = [
     { path: '/the-team', component: () => import(/* webpackChunkName: "HomePage" */  './pages/ChiSiamoPage'), name: 'the-team', meta: {requiresAuth: true} },
     { path: '/contacts', component: ContattiPage },
     { path: '/blog', component: BlogPage },
+    { path: '/blog/:id', props: true, component: () => import(/* webpackChunkName: "BlogArticle" */  './pages/BlogArticlePage')},
     { path: '/products', component: ProdottiPage },
     { path: '/products/:id', props: true, component: ProdottoSingoloPage },
     { path: '/:notFound(.*)', component: NotFoundPage },

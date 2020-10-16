@@ -54,7 +54,7 @@
     <!-- HOME PAGE CARDS -->
     <div class="row">
 
-      <base-card col="4" v-for="a in homePageArticles" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image">
+      <base-card col="4" v-for="a in homePageArticles" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
         <template #footer>
             <base-button mode="btn-primary-inverse" link="/prodotti/1">Scopri di più</base-button>
         </template>      

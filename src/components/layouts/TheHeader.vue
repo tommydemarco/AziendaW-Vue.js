@@ -16,16 +16,16 @@
           <router-link class="nav-link" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/products">Prodotti</router-link>
+          <router-link class="nav-link" to="/products">Products</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/blog">Blog</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/the-team">Chi siamo</router-link>
+          <router-link class="nav-link" to="/the-team">The Team</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/contacts">Contatti</router-link>
+          <router-link class="nav-link" to="/contacts">Contacts</router-link>
         </li>
       </ul>
     </div>
@@ -60,8 +60,22 @@ export default {
   font-size:18px;
   padding-left:15px;
 }
+#main-navbar a.navbar-brand {
+  color: white;
+  transition: all .3s ease-in-out;
+}
+#main-navbar a.navbar-brand:hover {
+  color: rgb(223, 223, 223);
+}
 #main-navbar a {
-  color: white !important;
+  color: rgb(223, 223, 223);
+  transition: all .3s ease-in-out;
+}
+#main-navbar a:hover {
+  color: white;
+}
+#main-navbar a.router-link-active {
+  color: white;
 }
 @media screen and (min-width:768px){
     .navbar-brand-centered {

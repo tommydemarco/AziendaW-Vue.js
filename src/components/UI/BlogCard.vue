@@ -1,6 +1,6 @@
 <template>
-    <div class="card col-md-6">
-        <div class="row no-gutters">
+    <div class="col-md-6">
+        <div class="row no-gutters custom-card">
             <div class="col-sm-5">
                 <slot name="image">
                     <div class="card-header">
@@ -31,5 +31,33 @@ export default {
 </script>
 
 <style scoped>
+.card-header {
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+.custom-card {
+    background: white;
+    border: 3px solid #16a085;
+    transition: all .3s ease-in-out;
+    border-radius: 0px;
+    max-height:258px;
+    overflow:hidden;
+}
+.custom-card:hover {
+    border: 3px solid #1abc9c;
+    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.26);
+}
+.custom-card:hover .card-footer {
+    background:#1abc9c;
+}
+.custom-card img {
+    width: 390px;
+}
+.card-footer {
+    background: #16a085;
+    border-radius: 0px;
+    transition: all .3s ease-in-out;
 
+}
 </style>
