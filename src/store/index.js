@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 import productModule from './modules/products/index.js';
 import employeesModule from './modules/employees/index.js';
-import authModule from './modules/products/index.js';
+import authModule from './modules/auth/index.js';
 
 const store = createStore({
     modules: {

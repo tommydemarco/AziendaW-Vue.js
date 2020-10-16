@@ -22,13 +22,21 @@
 </template>
 
 <script>
+import axiosAPI from '../axios-api.js';
+
 export default {
     data() {
         return {}
     },
     created() {
         //if (this.$store.getters['employees/listEmployees'].length !== 0) {
-            this.getEmployees() 
+        //this.getEmployees()
+        axiosAPI.get('/employees/', { headers: { Authorization: `Bearer ${this.$store.getters['auth/getToken']}`}})
+          .then(response => response.json())
+          .then((responseData) => {
+            this.$store.commit('employees/getEmployeesToken', responseData)
+          })
+
         //}
     },
     methods: {

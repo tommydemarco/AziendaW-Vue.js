@@ -9,7 +9,7 @@ import NotFoundPage from './pages/NotFoundPage.vue';
 
 const routes = [
     { path: '/', component: HomePage },
-    { path: '/chi-siamo', component: () => import(/* webpackChunkName: "HomePage" */  './pages/ChiSiamoPage') },
+    { path: '/chi-siamo', component: () => import(/* webpackChunkName: "HomePage" */  './pages/ChiSiamoPage'), name: 'chi-siamo' },
     { path: '/contatti', component: ContattiPage },
     { path: '/blog', component: BlogPage },
     { path: '/prodotti', component: ProdottiPage },

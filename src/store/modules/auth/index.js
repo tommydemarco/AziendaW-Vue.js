@@ -6,7 +6,8 @@ export default {
     namespaced: true,
     data() {
         return {
-
+            accessToken: null,
+            refreshToken: null,
         }
     },
     getters,

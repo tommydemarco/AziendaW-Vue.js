@@ -4,26 +4,19 @@
     <form @submit.prevent="logginIn">
       <h2 class="text-white text-center mb-3">Login</h2>
 
-      <!-- alert for form is invalid -->
-      <div v-if="!isValid" class="alert alert-warning alert-dismissible fade show" role="alert">
-        Invalid email or password
-        <button
-          type="button"
-          class="close"
-          data-dismiss="alert"
-          aria-label="Close"
-          @click="formIsValid"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <!-- alert if email or password are blank -->
+      <base-alert v-if="!isValid" alert-message="Invalid username or password" @close-click="formIsValid"></base-alert>
+
+      <!-- alert for server side errors -->
+      <base-alert v-if="errorLogin" :message="errorMessage"></base-alert>
+
       <div class="form-group">
         <input
           class="form-control"
-          type="email"
-          name="email"
+          type="text"
+          name="username"
           placeholder="Email"
-          v-model.trim="email"
+          v-model.trim="username"
         />
       </div>
       <div class="form-group">
@@ -37,8 +30,7 @@
       </div>
       <div class="form-group">
         <base-button mode="btn-primary btn-block" type="submit"
-          >Log In</base-button
-        >
+          >Log In</base-button>
       </div>
     </form>
   </div>
@@ -49,16 +41,30 @@
 export default {
   data() {
     return {
-      email: '',
+      username: '',
       password: '',
       isValid: true,
+      errorLogin: false,
+      errorMessage: '',
     };
   },
   methods: {
     logginIn() {
-      if (this.email === '' || this.password === '') {
+      this.errorLogin = false;
+      this.errorMessage = '';
+      if (this.username === '' || this.password === '') {
         this.isValid = false;
+        return
       }
+      this.$store.dispatch('auth/logging', {
+        username: this.username,
+        password: this.password
+      }).then(() => {
+        this.$router.push({ name: 'chi-siamo' })
+      }).catch((e) => {
+        this.errorLogin = true;
+        this.errorMessage = 'We could not log you in at the moment due to the following reason:' + e.message;
+      })
     },
     formIsValid() {
         this.isValid = true 
