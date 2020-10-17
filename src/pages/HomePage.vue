@@ -1,7 +1,7 @@
 <template>
   <!-- Header -->
   <photo-background>
-    <div class="filigrana py-5 mb-5">
+    <div class="filigrana py-5">
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-lg-9">
@@ -13,27 +13,28 @@
     </div>
   </photo-background>
 
+<div class="main-container pt-5">
   <!-- Page Content -->
   <div class="container">
 
     <div class="row">
       <div class="col-md-8 mb-5">
-        <h2>Un vino diverso</h2>
-        <hr>
-        <p>
-          La nostra passione è il vino, e ogni parte del nostro processo produttivo ha un
-          solo obiettivo: produrre un vino di alta qualità: sia per i nostri clienti, ma anche 
-          (e soprattutto) per noi. <br>
-        </p>
-        <p>
-          Siamo sicuri che, quando assaggerete uno dei nostri prodotti vi accorgerete subito di
-          quanta passione è stata messa nel portare ogni singolo sorso di vino ad avere il 
-          suo sapore unico. <br>
-        </p>
-        <a class="btn btn-primary btn-lg" href="#">Scopri di più &raquo;</a>
+          <h2>Un vino diverso</h2>
+          <hr>
+          <p>
+            La nostra passione è il vino, e ogni parte del nostro processo produttivo ha un
+            solo obiettivo: produrre un vino di alta qualità: sia per i nostri clienti, ma anche 
+            (e soprattutto) per noi. <br>
+          </p>
+          <p>
+            Siamo sicuri che, quando assaggerete uno dei nostri prodotti vi accorgerete subito di
+            quanta passione è stata messa nel portare ogni singolo sorso di vino ad avere il 
+            suo sapore unico. <br>
+          </p>
+          <a class="btn btn-primary btn-lg" href="#">Scopri di più &raquo;</a>
       </div>
       <div class="col-md-4 mb-5">
-        <h2>Contattaci</h2>
+        <h2>Contattaci</h2> 
         <hr>
         <address>
           <strong>Azienda, Vini eccellenti</strong>
@@ -63,6 +64,7 @@
     </div>
 
   </div>
+</div>
 </template>
 
 <script>

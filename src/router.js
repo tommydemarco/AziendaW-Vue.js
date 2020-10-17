@@ -12,7 +12,7 @@ import store from './store/index.js';
 const routes = [
     { path: '/', component: HomePage, name: 'home'},
     { path: '/the-team', component: () => import(/* webpackChunkName: "HomePage" */  './pages/ChiSiamoPage'), name: 'the-team', meta: {requiresAuth: true} },
-    { path: '/contacts', component: ContattiPage },
+    { path: '/contacts', component: ContattiPage, meta: {requiresAuth: true}},
     { path: '/blog', component: BlogPage },
     { path: '/blog/:id', props: true, component: () => import(/* webpackChunkName: "BlogArticle" */  './pages/BlogArticlePage')},
     { path: '/products', component: ProdottiPage },
