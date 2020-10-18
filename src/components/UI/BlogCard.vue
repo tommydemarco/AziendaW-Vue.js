@@ -9,7 +9,7 @@
                 </slot>
             </div>
 
-            <div class="col-sm-7">
+            <div class="col-sm-7 bg-green">
                 <div class="card-body">
                     <h3 class="card-title">{{title}}</h3>
                     <p class="card-text">{{paragraph.slice(0, 200)}}</p>
@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style scoped>
+.card-body {
+    background:white;
+}
 .card-header {
     padding: 0px;
     height: 100%;
@@ -62,5 +65,12 @@ export default {
 }
 .card-header img {
     border-radius: 0px!important;
+}
+.bg-green {
+    background: #16a085;
+    transition: all .3s ease-in-out;
+}
+.custom-card:hover .bg-green {
+   background:#1abc9c; 
 }
 </style>

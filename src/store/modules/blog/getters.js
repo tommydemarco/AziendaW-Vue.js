@@ -1,5 +1,8 @@
 export default {
-    allArticles(state) {
-        return state.articles
+    getAllArticles(state) {
+        return state.blogArticles
+    },
+    getSingleArticle(state) {
+        return state.singleArticle
     }
 }

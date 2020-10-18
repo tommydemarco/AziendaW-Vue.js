@@ -15,7 +15,7 @@
 
             <!-- CONTENT SLOT -->
             <slot name="content">
-                <div class="price"><h6>€{{price}}</h6></div>
+                <div class="price"><h6>€{{price}}/kg</h6></div>
                 <h4 class="card-title">{{ title }}</h4>
                 <p class="card-text">{{ paragraph }}</p>
             </slot>

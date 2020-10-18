@@ -1,27 +1,32 @@
 <template>
-  <aside class="col-sm-4">
+  <aside class="col-sm-4 mb-5">
     <div class="sidebar-sticky">
     <div class="card">
       <article class="card-group-item">
         <header class="card-header">
-          <h6 class="title">Brands</h6>
+          <h5 class="title">Filter by products</h5>
         </header>
         <div class="filter-content">
           <div class="card-body">
             <form>
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" id="vinoRosso" value="null" checked @change="filterProducts" />
-                <span class="form-check-label"> Vino Rosso </span>
+                <input class="form-check-input" type="checkbox" id="tomatoes" value="null" checked @change="filterProducts" />
+                <span class="form-check-label">Organic tomatoes</span>
               </label>
               <!-- form-check.// -->
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" id="vinoBianco" value="null" checked @change="filterProducts" />
-                <span class="form-check-label"> Vino Bianco </span>
+                <input class="form-check-input" type="checkbox" id="carrots" value="null" checked @change="filterProducts" />
+                <span class="form-check-label">Organic carrots</span>
               </label>
               <!-- form-check.// -->
               <label class="form-check">
-                <input class="form-check-input" type="checkbox" id="vinoRose" value="null" checked @change="filterProducts"/>
-                <span class="form-check-label"> Vino Rosè </span>
+                <input class="form-check-input" type="checkbox" id="peppers" value="null" checked @change="filterProducts"/>
+                <span class="form-check-label">Organic peppers</span>
+              </label>
+              <!-- form-check.// -->
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" id="zucchini" value="null" checked @change="filterProducts"/>
+                <span class="form-check-label">Organic zucchini</span>
               </label>
               <!-- form-check.// -->
             </form>
@@ -35,7 +40,7 @@
     <div class="card">
       <article class="card-group-item">
         <header class="card-header">
-          <h6 class="title">Range input</h6>
+          <h5 class="title">Filter by price</h5>
         </header>
         <div class="filter-content">
           <div class="card-body">
@@ -71,41 +76,22 @@
     <div class="card">
       <article class="card-group-item">
         <header class="card-header">
-          <h6 class="title">Selection</h6>
+          <h5 class="title">Filter by seasonality</h5>
         </header>
         <div class="filter-content">
           <div class="card-body">
-            <div class="custom-control custom-checkbox">
-              <span class="float-right badge badge-light round">52</span>
-              <input type="checkbox" class="custom-control-input" id="Check1" />
-              <label class="custom-control-label" for="Check1">Samsung</label>
-            </div>
-            <!-- form-check.// -->
-
-            <div class="custom-control custom-checkbox">
-              <span class="float-right badge badge-light round">132</span>
-              <input type="checkbox" class="custom-control-input" id="Check2" />
-              <label class="custom-control-label" for="Check2"
-                >Black berry</label
-              >
-            </div>
-            <!-- form-check.// -->
-
-            <div class="custom-control custom-checkbox">
-              <span class="float-right badge badge-light round">17</span>
-              <input type="checkbox" class="custom-control-input" id="Check3" />
-              <label class="custom-control-label" for="Check3">Samsung</label>
-            </div>
-            <!-- form-check.// -->
-
-            <div class="custom-control custom-checkbox">
-              <span class="float-right badge badge-light round">7</span>
-              <input type="checkbox" class="custom-control-input" id="Check4" />
-              <label class="custom-control-label" for="Check4"
-                >Other Brand</label
-              >
-            </div>
-            <!-- form-check.// -->
+            <form>
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" id="seasonal" value="null" checked @change="filterProducts" />
+                <span class="form-check-label">Seasonal</span>
+              </label>
+              <!-- form-check.// -->
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" id="allYear" value="null" checked @change="filterProducts" />
+                <span class="form-check-label">All-year round</span>
+              </label>
+              <!-- form-check.// -->
+            </form>
           </div>
           <!-- card-body.// -->
         </div>
@@ -121,11 +107,14 @@ export default {
   data() {
     return {
       filter: {
-        vinoRosso: true,
-        vinoBianco: true,
-        vinoRose: true,
+        tomatoes: true,
+        carrots: true,
+        zucchini: true,
+        peppers: true,
         minPrice: '0',
-        maxPrice: '10000'
+        maxPrice: '100',
+        seasonal: true,
+        allYear: true
       }
     }
   }, 
@@ -161,16 +150,18 @@ export default {
     background-color: #16a085;
     color: white;
     border-radius: 0px!important;
+    padding: 17px!important;
 }
-.card-header h6 {
+.card-header h5 {
     margin-bottom:0px;
+    font-size: 17px
 }
 .card-body {
     border-radius: 0px;
     background-color: white;
 }
-.sidebar-sticky {
+/* .sidebar-sticky {
     position: sticky;
     top: 30px;
-}
+} */
 </style>

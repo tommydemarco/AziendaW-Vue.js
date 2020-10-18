@@ -1,45 +1,61 @@
 <template>
-    <div class="main-container">
-      <section>
-        <div class="container pt-3 pb-3">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="pb-5">
-                        <h1 class="mb-4">{{ blogArticle.title }}</h1>
-                        <p>{{blogArticle.content}}</p>
-                    </div>
-                </div>
-                <div class="col-md-5 pt-5">
-                    <img :src="blogArticle.image" class="img-responsive">
-                </div>                    
+  <div class="main-container">
+    <section>
+      <div class="container pt-3 pb-3">
+        <div class="row pb-5">
+          <div class="col-md-7">
+            <div>
+              <h1 class="mb-4">{{ singleArticle.title }}</h1>
+              <p>{{ singleArticle.content }}</p>
+              <router-link class="btn btn-primary btn-lg mt-2" :to="{ name: 'blog'}"
+                >Back to the blog &raquo;</router-link>
             </div>
-            
+          </div>
+          <div class="col-md-5 pt-5">
+            <img :src="singleArticle.image" class="img-responsive" />
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
 export default {
-    props: ['id'],
+  props: ['id'],
+  data() {
+    return {
+      error: false,
+      errorMessage: null,
+    };
+  },
+  created() {
+      if (this.$store.getters['blog/getAllArticles'].length == 0) {
+        this.loadSingleArticle();
+      } else {
+        this.getArticle()
+      }         
+    },
     computed: {
-        blogArticle() {
-            const article = this.$store.getters['blog/allArticles'].filter(article => article.id == this.id)
-            return article[0]
-        }
+      singleArticle() {
+        return this.$store.getters['blog/getSingleArticle']
+      }
     },
     methods: {
-        getProduct() {
-            //get the single product actually
-        }
+        getArticle() {   
+            this.$store.commit('blog/setSingleArticle', this.id)
+        },
+        loadSingleArticle() {
+          this.$store.dispatch('blog/loadSingleArticle', this.id)
+        },
     }
-}
+};
 </script>
 
 <style scoped>
 .img-responsive {
-    max-width: 100%;
-    position:stycky;
-    top:40px;
+  max-width: 100%;
+  position: stycky;
+  top: 40px;
 }
 </style>

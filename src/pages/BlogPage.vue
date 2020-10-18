@@ -14,7 +14,8 @@
 
   <section>
     <div class="container pb-5">
-      <div class="row">
+      <base-spinner v-if="isLoading"></base-spinner>
+      <div class="row" v-else>
         <blog-card v-for="a in allArticles" :key="a.id" :title="a.title" :paragraph="a.content.slice(0, 70) + '...'" :imageUrl="a.image">
           <template #footer>
             <base-button mode="btn-primary-inverse" :link="'/blog/' + a.id">Read the article &raquo;</base-button>
@@ -29,18 +30,32 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isLoading: false
+    }
+  },
   computed: {
     allArticles() {
-      const products = this.$store.getters['blog/allArticles']
+      const products = this.$store.getters['blog/getAllArticles']
       return products
     }
   },
   created() {
-    this.fetchArticles() 
+    if(this.$store.getters['blog/getAllArticles'].length == 0) {
+      this.fetchArticles() 
+    }
   },
   methods: {
-    fetchArticles() {
-      this.$store.dispatch('blog/fetchArticles')
+    async fetchArticles() {
+      this.isLoading = true 
+      try {
+        await this.$store.dispatch('blog/fetchArticles')
+      } catch(e) {
+        this.error = true,
+        this.errorMessage = e.message
+      }
+      this.isLoading = false
     }
   }
 }

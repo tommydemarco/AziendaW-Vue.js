@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp, defineAsyncComponent } from 'vue';
 import App from './App.vue';
 import router from './router.js';
 import store from './store/index.js';
@@ -12,10 +12,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import BaseCard from './components/UI/BaseCard.vue';
 import BaseButton from './components/UI/BaseButton.vue';
 import PhotoBackground from './components/UI/PhotoBackground.vue';
-import BaseAlert from './components/UI/BaseAlert.vue';
-import BaseSpinnerF from './components/UI/BaseSpinnerF.vue';
 import BaseSpinner from './components/UI/BaseSpinner.vue';
-import BlogCard from './components/UI/BlogCard.vue';
+
+//lazy loading less frequently loaded components
+const BaseAlert = defineAsyncComponent(() => import('./components/UI/BaseAlert.vue'))
+const BaseSpinnerF = defineAsyncComponent(() => import('./components/UI/BaseSpinnerF.vue'))
+const BlogCard = defineAsyncComponent(() => import('./components/UI/BlogCard.vue'))
+
 app.component('base-card', BaseCard);
 app.component('base-button', BaseButton);
 app.component('photo-background', PhotoBackground);

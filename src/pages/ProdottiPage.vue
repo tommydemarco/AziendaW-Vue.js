@@ -13,7 +13,7 @@
   </section>
 
   <section>
-    <div class="container pb-5">
+    <div class="container pb-3">
       <div class="row">
         <the-sidebar @change-filters="changeTheFiltering"></the-sidebar>
         <div class="col-md-8">
@@ -21,10 +21,7 @@
           <div class="row" v-else>
             <base-card col="6" v-for="a in allProducts" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
               <template #footer>
-                <ul class="button-ul">
-                  <li><base-button mode="btn-primary-inverse" link="/prodotti/1">Scopri di più &raquo;</base-button></li>
-                  <li class="ml-3"><base-button mode="btn-primary-inverse" link="/prodotti/1">Compra ora &raquo;</base-button></li>
-                </ul>
+                <base-button mode="btn-primary-inverse" :link="'/products/' + a.id">View product details &raquo;</base-button>
               </template>      
             </base-card>
           </div>
@@ -46,11 +43,14 @@ export default {
   data() {
     return {
       activeFilters: {
-        vinoRosso: true,
-        vinoBianco: true,
-        vinoRose: true,
-        minPrice: 0,
-        maxPrice: 10000
+        tomatoes: true,
+        carrots: true,
+        zucchini: true,
+        peppers:true,
+        minPrice: '0',
+        maxPrice: '100',
+        seasonal: true,
+        allYear: true
       },
       isLoading: false
     }
@@ -59,28 +59,42 @@ export default {
     allProducts() {
       const products = this.$store.getters['products/allProducts']
       return products.filter(product => {
-        if (this.activeFilters.vinoRosso && product.category.id == '1') {
+        if (this.activeFilters.peppers && product.category.id == '3') {
           if (this.activeFilters.minPrice < product.price && this.activeFilters.maxPrice > product.price) {
-            return true
-          } else {
-            return false
-          }    
+            if (this.activeFilters.seasonal && product.tags[0] == '1' || this.activeFilters.allYear && product.tags[0] == '2') {
+              return true
+            } else {
+              return false
+            }    
+          }
         }
-        if (this.activeFilters.vinoBianco && product.category.id == '2') {
+        if (this.activeFilters.tomatoes && product.category.id == '6') {
           if (this.activeFilters.minPrice < product.price && this.activeFilters.maxPrice > product.price) {
-            return true
-          } else {
-            return false
-          } 
+            if (this.activeFilters.seasonal && product.tags[0] == '1' || this.activeFilters.allYear && product.tags[0] == '2') {
+              return true
+            } else {
+              return false
+            }    
+          }
         }
-        if (this.activeFilters.vinoRose && product.category.id == '3') {
+        if (this.activeFilters.carrots && product.category.id == '7') {
           if (this.activeFilters.minPrice < product.price && this.activeFilters.maxPrice > product.price) {
-            return true
-          } else {
-            return false
-          }  
+            if (this.activeFilters.seasonal && product.tags[0] == '1' || this.activeFilters.allYear && product.tags[0] == '2') {
+              return true
+            } else {
+              return false
+            }    
+          }
         }
-         
+        if (this.activeFilters.zucchini && product.category.id == '5') {
+          if (this.activeFilters.minPrice < product.price && this.activeFilters.maxPrice > product.price) {
+            if (this.activeFilters.seasonal && product.tags[0] == '1' || this.activeFilters.allYear && product.tags[0] == '2') {
+              return true
+            } else {
+              return false
+            }    
+          }
+        }  
         return false
       })
     }

@@ -1,20 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomePage from './pages/HomePage.vue';
-import ContattiPage from './pages/ContattiPage.vue';
 import BlogPage from './pages/BlogPage.vue';
 import ProdottiPage from './pages/ProdottiPage.vue';
 import ProdottoSingoloPage from './pages/ProdottoSingoloPage.vue';
 import NotFoundPage from './pages/NotFoundPage.vue';
+import BlogArticlePage from './pages/BlogArticlePage.vue';
+
 //importing the store to check for authentication
 import store from './store/index.js';
 
 const routes = [
     { path: '/', component: HomePage, name: 'home'},
-    { path: '/the-team', component: () => import(/* webpackChunkName: "HomePage" */  './pages/ChiSiamoPage'), name: 'the-team', meta: {requiresAuth: true} },
-    { path: '/contacts', component: ContattiPage, meta: {requiresAuth: true}},
-    { path: '/blog', component: BlogPage },
-    { path: '/blog/:id', props: true, component: () => import(/* webpackChunkName: "BlogArticle" */  './pages/BlogArticlePage')},
+    { path: '/the-team', component: () => import(/* webpackChunkName: "TheTeam" */  './pages/ChiSiamoPage'), name: 'the-team', meta: {requiresAuth: true} },
+    { path: '/contacts', component: () => import(/* webpackChunkName: "Contacts" */  './pages/ContattiPage'), meta: {requiresAuth: true}},
+    { path: '/blog', component: BlogPage, name: 'blog'},
+    { path: '/blog/:id', props: true, component: BlogArticlePage},
     { path: '/products', component: ProdottiPage },
     { path: '/products/:id', props: true, component: ProdottoSingoloPage },
     //policies 

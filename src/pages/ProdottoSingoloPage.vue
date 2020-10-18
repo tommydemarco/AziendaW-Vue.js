@@ -1,41 +1,29 @@
 <template>
-  <section>
-    <header>
-      <div class="container text-center py-4">
-        <h1> {{ singleProduct.name }}</h1>
-        <p>{{ singleProduct.description }}</p>
-      </div>
-    </header>
-
-  <div class="container pb-5">
-    <div class="card">
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="card-block">
-            <h4 class="card-title">Descrizione prodotto:</h4>
-            <p>{{ singleProduct.description }}</p>
-            <ul class="button-ul">
-              <li><base-button link="#"><i></i>Compra ora</base-button></li>
-              <li class="ml-2"><base-button link="#"><i></i>Aggiungi al carrello</base-button></li>
-            </ul>
+  <div class="main-container">
+      <section>
+        <div class="container pt-3 pb-3">
+            <div class="row pb-5">
+                <div class="col-md-7">
+                    <div>
+                        <h1 class="mb-4">Organic {{ singleProduct.name }} <span class="price">€{{singleProduct.price}}/kg</span></h1>
+                        <p>{{singleProduct.description}}</p>
+                    </div>
+                </div>
+                <div class="col-md-5 pt-5">
+                  <aside>
+                    <img :src="singleProduct.image" class="img-responsive">
+                    <ul class="button-ul mt-4">
+                      <li><button class="btn btn-primary btn-lg" type="button" @click="alertMessage">Add to cart &raquo;</button></li>
+                      <li class="ml-3"><button class="btn btn-primary btn-lg" type="button" @click="alertMessage">Buy now &raquo;</button></li>
+                    </ul>
+                    <base-alert class="mt-4" v-if="error" @close-click="dismissError" v-bind:alert-message="errorMessage"></base-alert>
+                  </aside>
+                </div>                    
+            </div>
             
-          </div>
         </div>
-
-        <div class="col-sm-4">
-          <div class="card-header">
-          <img
-            class="d-block w-100"
-            :src="singleProduct.image"
-            alt=""
-          />
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
-  </div>
-</section>
-
 </template>
 
 <script>
@@ -43,6 +31,8 @@ export default {
     props: ['id'],
     data() {
       return { 
+        error: false,
+        errorMessage: null
       } 
     },
     created() {
@@ -64,25 +54,30 @@ export default {
         loadSingleProduct() {
           this.$store.dispatch('products/loadSingleProduct', this.id)
         },
+        alertMessage() {
+          this.error = true,
+          this.errorMessage = 'This is just a personal project, cart and check out features are not supported.'
+        },
+        dismissError() {
+          this.error = false,
+          this.errorMessage = null
+        }
     }
 }
 </script>
 
 <style scoped>
-.card-block {
-  padding:25px;
+.img-responsive {
+    max-width: 100%;
+    position:stycky;
+    top:40px;
 }
-.card-header {
-  padding: 0;
-  max-height: 330px;
-  overflow: hidden;
+.price {
+  color:#16a085;
+  float:right;
 }
-.card:hover {
-    border: 3px solid #2ecc71;
-    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.26);
-}
-.card {
-    border: 3px solid #27ae60;
-    transition: all .3s ease-in-out;
+aside {
+  position: sticky;
+  top:40px
 }
 </style>

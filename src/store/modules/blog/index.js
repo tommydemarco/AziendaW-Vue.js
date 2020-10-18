@@ -4,9 +4,10 @@ import mutations from './mutations.js';
 
 export default {
     namespaced: true,
-    data() {
+    state() {
         return {
-            articles: []
+            blogArticles: [],
+            singleArticle: {}
         }
     },
     getters,

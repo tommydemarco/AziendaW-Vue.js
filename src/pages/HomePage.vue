@@ -54,14 +54,12 @@
     </div>
 
     <!-- HOME PAGE CARDS -->
-    <div class="row">
-
+    <div class="row mt-3 pb-3">
       <base-card col="4" v-for="a in homePageArticles" :key="a.id" :title="a.name" :paragraph="a.description.slice(0, 70) + '...'" :imageUrl="a.image" :category="a.category.category" :price="a.price">
         <template #footer>
-            <base-button mode="btn-primary-inverse" link="/prodotti/1">Scopri di più</base-button>
+            <base-button mode="btn-primary-inverse" :link="'/products/' + a.id">View product details &raquo;</base-button>
         </template>      
-      </base-card>
-      
+      </base-card>   
     </div>
 
   </div>
