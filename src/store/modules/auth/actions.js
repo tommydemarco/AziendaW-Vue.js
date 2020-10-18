@@ -1,6 +1,6 @@
 export default {
     async logging(context, userCredantials) {
-        const response = await fetch('http://localhost:8000/api/azienda/api/token/', {
+        const response = await fetch('http://djshortcats.website/api/azienda/api/token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,8 +22,8 @@ export default {
             }
         }
 
-        localStorage.setItem('accessToken', responseData.access)
-        localStorage.setItem('refreshToken', responseData.refresh)
+        // localStorage.setItem('accessToken', responseData.access)
+        // localStorage.setItem('refreshToken', responseData.refresh)
 
         //responseData returns an Object with two values: access token and refresh token
         context.commit('setToken', responseData)
@@ -41,8 +41,8 @@ export default {
         
     },
     logout(context) {
-        localStorage.removeItem('accessToken')
-        localStorage.removeItem('refreshToken')
+        // localStorage.removeItem('accessToken')
+        // localStorage.removeItem('refreshToken')
 
         context.commit('setToken', {
             access: null,

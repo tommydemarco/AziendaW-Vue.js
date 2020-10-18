@@ -7,13 +7,13 @@
                 <p class="text-center mt-0">Meet our enthusiastic team members</p>
             </div>
             <div class="row people">
-                <div v-for="e in listEmployees" :key="e.id" class="col-md-6 col-lg-4 item">
+                <div v-for="e in listEmployees" :key="e.id" class="col-md-6 col-lg-4 item mb-3">
                     <div class="box"><img class="rounded-circle" :src="e.image">
                         <h3 class="name">{{ e.name }}</h3>
                         <p class="title">{{ e.job_title }}</p>
                         <p class="description">{{ e.bio }}</p>
-                        <div class="social"><a :href="e.fb_link"><i class="fa fa-facebook-official"></i></a><a :href="e.tw_link"><i class="fa fa-twitter"></i></a><a :href="e.ig_link"><i class="fa fa-instagram"></i></a></div>
                     </div>
+                    <div class="social"><a :href="e.fb_link"><i class="fa fa-facebook-official"></i></a><a :href="e.tw_link"><i class="fa fa-twitter"></i></a><a :href="e.ig_link"><i class="fa fa-instagram"></i></a></div>
                 </div>
             </div>
         </div>
@@ -27,15 +27,10 @@ export default {
         return {}
     },
     created() {
-        //if (this.$store.getters['employees/listEmployees'].length !== 0) {
+      //if(this.$store.getters['employees/listEmployees'].length == 0) {
         this.getEmployees()
-        // axiosAPI.get('/employees/', { headers: { Authorization: `Bearer ${this.$store.getters['auth/getToken']}`}})
-        //   .then(response => response.json())
-        //   .then((responseData) => {
-        //     this.$store.commit('employees/getEmployeesToken', responseData)
-        //   })
+      //}
 
-        //}
     },
     methods: {
         getEmployees() {
@@ -63,8 +58,8 @@ export default {
 .main-container .item .box {
   text-align:center;
   padding:30px;
+  padding-bottom:15px;
   background-color:#fff;
-  margin-bottom:30px;
 }
 
 .main-container .item .name {
@@ -77,9 +72,10 @@ export default {
 .main-container .item .title {
   text-transform:uppercase;
   font-weight:bold;
-  color:#d0d0d0;
+  color:#16a085;
   letter-spacing:2px;
   font-size:13px;
+  transition: all .3s ease-in-out;
 }
 
 .main-container .item .description {
@@ -94,7 +90,14 @@ export default {
 
 .main-container .social {
   font-size:18px;
-  color:#a2a8ae;
+  color:#fafafa;
+  background: #16a085;
+  padding: 20px;
+  transition: all .3s ease-in-out;
+}
+.main-container .item:hover .social {
+  color:#ebebeb;
+  background: #1abc9c;
 }
 
 .main-container .social a {
@@ -107,4 +110,16 @@ export default {
 .main-container .social a:hover {
   opacity:1;
 }
+.main-container .box {
+  border: 3px solid #16a085;
+  transition: all .3s ease-in-out;
+}
+.main-container .item:hover .box {
+  border: 3px solid #1abc9c;
+  box-shadow: 0 2px 13px rgba(0, 0, 0, 0.26);
+}
+.main-container .box:hover .title {
+  color: #1abc9c;
+}
+
 </style>
