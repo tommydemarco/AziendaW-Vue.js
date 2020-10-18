@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-6">
-        <div class="row no-gutters custom-card">
+        <div class="row no-gutters custom-card mb-4">
             <div class="col-sm-5">
                 <slot name="image">
                     <div class="card-header">
@@ -35,13 +35,13 @@ export default {
     padding: 0px;
     height: 100%;
     overflow: hidden;
+    max-height: 253px;
 }
 .custom-card {
     background: white;
     border: 3px solid #16a085;
     transition: all .3s ease-in-out;
     border-radius: 0px;
-    max-height:258px;
     overflow:hidden;
 }
 .custom-card:hover {
@@ -51,13 +51,16 @@ export default {
 .custom-card:hover .card-footer {
     background:#1abc9c;
 }
-.custom-card img {
-    width: 390px;
-}
 .card-footer {
     background: #16a085;
     border-radius: 0px;
     transition: all .3s ease-in-out;
 
+}
+.card-header:first-child {
+    border-radius: 0px!important;
+}
+.card-header img {
+    border-radius: 0px!important;
 }
 </style>

@@ -66,6 +66,10 @@ export default {
   padding-top:40px;
   color:inherit;
 }
+.main-container h2 {
+  font-weight:bold;
+  color:inherit;
+}
 
 @media (max-width:767px) {
   .main-container h1 {

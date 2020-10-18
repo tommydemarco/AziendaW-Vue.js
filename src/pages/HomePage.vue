@@ -5,8 +5,8 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-lg-9">
-            <h1 class="display-4 text-white mt-5 mb-2">Il Vino, una passione</h1>
-            <p class="mb-5 text-white home-p">Per noi il vino non è solo un prodotto, ma uno stile di vita. Dalla vendemmia al prodotto finale, ci mettiamo il cuore e tutta la nostra dedizione.</p>
+            <h1 class="display-4 text-white mt-5 mb-2">Our passion, on your table</h1>
+            <p class="mb-5 text-white home-p">For us, helthy and organic food is not just a passion, but a way of living. Let us bring the health on your table, directly from our farms.</p>
           </div>
         </div>
       </div>
@@ -19,36 +19,37 @@
 
     <div class="row">
       <div class="col-md-8 mb-5">
-          <h2>Un vino diverso</h2>
+          <h2>Organic, our way of living</h2>
           <hr>
           <p>
-            La nostra passione è il vino, e ogni parte del nostro processo produttivo ha un
-            solo obiettivo: produrre un vino di alta qualità: sia per i nostri clienti, ma anche 
-            (e soprattutto) per noi. <br>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+            tempor invidunt ut labore et dolore magna aliquyam erat. sed diam voluptua. 
+            At vero eos et accusam, consetetur sadipscing elitr. <br>
           </p>
           <p>
-            Siamo sicuri che, quando assaggerete uno dei nostri prodotti vi accorgerete subito di
-            quanta passione è stata messa nel portare ogni singolo sorso di vino ad avere il 
-            suo sapore unico. <br>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+            At vero eos et accusam. <br>
           </p>
-          <a class="btn btn-primary btn-lg" href="#">Scopri di più &raquo;</a>
+          <router-link class="btn btn-primary btn-lg" to="/products">Discover our products &raquo;</router-link>
       </div>
       <div class="col-md-4 mb-5">
-        <h2>Contattaci</h2> 
+        <h2>Contact us</h2> 
         <hr>
-        <address>
-          <strong>Azienda, Vini eccellenti</strong>
-          <br>34, Via del vigneto
-          <br>Cannobio, IT 28822
-          <br>
-        </address>
-        <address>
-          <abbr title="Phone">P:</abbr> 
-          +39 0123 4567
-          <br>
-          <abbr title="Email">E:</abbr> 
-          <a href="mailto:#"> mail@azienda.co.it</a>
-        </address>
+          <address>
+            <strong>Azienda, Organic food</strong>
+            <br>34, Green Street
+            <br>Organic city, IT 6373
+            <br>
+          </address>
+          <address>
+            <abbr>P:</abbr> 
+            +114 0123 4567
+            <br>
+            <abbr>E:</abbr> 
+            mail@azienda.co.it
+          </address>
+        <router-link class="btn btn-primary btn-lg" to="/contacts">Write us a message &raquo;</router-link>
       </div>
     </div>
 

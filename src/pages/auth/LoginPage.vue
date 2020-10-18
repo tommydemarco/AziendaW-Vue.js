@@ -34,8 +34,12 @@
         />
       </div>
       <div class="form-group">
-        <base-button mode="btn-primary btn-block" type="submit"
+        <base-button mode="btn-primary btn-block mb-2" type="submit"
           >Log In</base-button>
+      </div>
+      <div class="alert alert-warning" role="alert">
+        <b>Technical alert:</b> The JWT will not be saved in the local storage.
+        Reloading the page when logged in will log you out automatically.
       </div>
     </form>
   </div>

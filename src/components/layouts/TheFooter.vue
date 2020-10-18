@@ -4,30 +4,30 @@
 		<div class="container">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
+					<h5>Website Navigation</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><router-link to="/products"><i class="fa fa-angle-double-right"></i>Products</router-link></li>
+						<li><router-link to="/blog"><i class="fa fa-angle-double-right"></i>Blog</router-link></li>
+						<li><router-link to="/the-team"><i class="fa fa-angle-double-right"></i>The Team</router-link></li>
+						<li><router-link to="/contacts"><i class="fa fa-angle-double-right"></i>Contacts</router-link></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
+					<h5>Technologies used</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="https://vuejs.org/"><i class="fa fa-angle-double-right"></i>Vue.js</a></li>
+						<li><a href="https://vuex.vuejs.org/"><i class="fa fa-angle-double-right"></i>Vuex</a></li>
+						<li><a href="https://www.djangoproject.com/"><i class="fa fa-angle-double-right"></i>Django</a></li>
+						<li><a href="https://www.django-rest-framework.org/"><i class="fa fa-angle-double-right"></i>Django REST</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
-					<h5>Quick links</h5>
+					<h5>Other links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="#"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><router-link to="/cookies-policy"><i class="fa fa-angle-double-right"></i>Cookies Policy</router-link></li>
+						<li><router-link to="/privacy-policy"><i class="fa fa-angle-double-right"></i>Privacy Policy</router-link></li>
+						<li><a href="https://tommasodemarco.com"><i class="fa fa-angle-double-right"></i>Contact developer</a></li>
+						<li><a href="https://github.com/tommydemarco"><i class="fa fa-angle-double-right"></i>View on GitHub</a></li>
 					</ul>
 				</div>
 			</div>
@@ -44,8 +44,8 @@
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-					<p>Some legal stuff here </p>
-					<p class="h6"> Something here </p>
+					<p>This website is only a personal project and has no commercial/representational purposes.</p>
+					<p class="h6">This website does not represent any real company.</p>
 				</div>
 				<hr>
 			</div>	

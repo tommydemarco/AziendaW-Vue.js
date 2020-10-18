@@ -3,12 +3,12 @@
     <div class="container">
     <ul class="navbar-nav align-left">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-map-marker"></i> Cannobio, 28822, IT</a>
+          <a class="nav-link" href="#"><i class="fa fa-map-marker"></i> Organic city, IT 6373</a>
         </li>
     </ul>
       <ul id="no-small" class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-phone"></i> +39 0123 45678</a>
+          <a class="nav-link" href="#"><i class="fa fa-phone"></i> +114 0123 4567</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fa fa-envelope"></i> mail@azienda.co.it</a>

@@ -17,15 +17,27 @@ const routes = [
     { path: '/blog/:id', props: true, component: () => import(/* webpackChunkName: "BlogArticle" */  './pages/BlogArticlePage')},
     { path: '/products', component: ProdottiPage },
     { path: '/products/:id', props: true, component: ProdottoSingoloPage },
-    { path: '/:notFound(.*)', component: NotFoundPage },
+    //policies 
+    { path: '/privacy-policy', component: () => import(/* webpackChunkName: "PrivacyPolicy" */  './pages/policies/PrivacyPolicyPage')},
+    { path: '/cookies-policy', component: () => import(/* webpackChunkName: "CookiesPolicy" */  './pages/policies/CookiesPolicyPage')},
     //restricted routes 
     { path: '/login', component: () => import(/* webpackChunkName: "LoginPage" */  './pages/auth/LoginPage'), meta: {requiresUnauth: true} },
-    { path: '/logout', component: () => import(/* webpackChunkName: "LoginPage" */  './pages/auth/LogoutPage'), name: 'logout'}
+    { path: '/logout', component: () => import(/* webpackChunkName: "LogoutPage" */  './pages/auth/LogoutPage'), name: 'logout'},
+    //404 not found
+    { path: '/:notFound(.*)', component: NotFoundPage }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: routes
+    routes: routes,
+    //adding scroll behaviour for enhanced user experience
+    scrollBehavior(_, _2, savedPosition) {
+        if(savedPosition) {
+            return savedPosition
+        } else {
+            return { top: 0, left: 0}
+        }
+    }
 })
 
 //adding a global navigation guard 
