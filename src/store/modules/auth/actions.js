@@ -1,6 +1,6 @@
 export default {
     async logging(context, userCredantials) {
-        const response = await fetch('http://djshortcats.website/api/azienda/api/token/', {
+        const response = await fetch('https://djshortcats.website/api/azienda/api/token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -8,8 +8,34 @@
     <link rel="icon" type="image/png" href="<%= BASE_URL %>favicon-16x16.png" sizes="16x16" />
     <title>Azienda - amazing food</title>
     <meta name="description" content="This is a Vue.js peronal project">
+
+    <!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
+    <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+    cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"light","language":"en","cookies_policy_url":"https://azienda.tommasodemarco/cookies-policy"});
+    });
+    </script>
+    <noscript>Cookie Consent by <a href="https://www.FreePrivacyPolicy.com/free-cookie-consent/" rel="nofollow noopener">FreePrivacyPolicy.com</a></noscript>
+    <!-- End Cookie Consent -->
+
   </head>
   <body>
+  
+    <!-- styling of the cookie banner -->
+    <style>
+      .cc_dialog.headline {
+            position: fixed!important;
+            bottom: 0!important;
+            width: 100%!important;
+            top: inherit!important;
+            padding: 20px 40px!important;
+      }
+      .cc_dialog.headline .cc_b_ok {
+        border-radius:0px!important;
+        background:#16a085!important;
+      }
+    </style>
 
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>

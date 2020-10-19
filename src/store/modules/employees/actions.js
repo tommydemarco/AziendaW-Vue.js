@@ -1,7 +1,7 @@
 export default {
     async getEmployees(context) {
         console.log(context.rootGetters['auth/getToken'])
-        const response = await fetch('http://djshortcats.website/api/azienda/employees/', {
+        const response = await fetch('https://djshortcats.website/api/azienda/employees/', {
             method: 'GET',
             headers: { Authorization: `Bearer ${context.rootGetters['auth/getToken']}`}
         })

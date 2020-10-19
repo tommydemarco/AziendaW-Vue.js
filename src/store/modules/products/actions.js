@@ -1,6 +1,6 @@
 export default {
     async homePageProducts(context) {
-        const response = await fetch('http://djshortcats.website/api/azienda/list/');
+        const response = await fetch('https://djshortcats.website/api/azienda/list/');
 
         if(!response.ok) {
             //do something
@@ -11,7 +11,7 @@ export default {
         }
     },
     async loadSingleProduct(context, id) {
-        const response = await fetch('http://djshortcats.website/api/azienda/id/' + id);
+        const response = await fetch('https://djshortcats.website/api/azienda/id/' + id);
         
         if(!response.ok) {
             //some error handling
@@ -23,7 +23,7 @@ export default {
         context.commit('loadSingleProduct', singleProduct)
     },
     async fetchProducts(context) {
-        const response = await fetch('http://djshortcats.website/api/azienda/list/')
+        const response = await fetch('https://djshortcats.website/api/azienda/list/')
         const responseDate = await response.json() 
 
         const products = responseDate
