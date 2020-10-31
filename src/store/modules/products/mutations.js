@@ -4,7 +4,6 @@ export default {
     },
     loadSingleProduct(state, payload) {
         state.singleProduct = payload
-        console.log('data committed')
     },
     setSingleProduct(state, id) {
         state.singleProduct = state.homePageProducts.find(product => product.id == id)

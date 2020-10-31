@@ -44,7 +44,6 @@ const router = createRouter({
 //adding a global navigation guard 
 router.beforeEach(function(to, _, next) {
     if (to.meta.requiresAuth && !store.getters['auth/isAuthenticated']) {
-        console.log(to)
         router.push('/login' + '?redirect=' + to.fullPath.replace('/', ''))
     } else if (to.meta.requiresUnauth && store.getters['auth/isAuthenticated']) {
         next('/home')
